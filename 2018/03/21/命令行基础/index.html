@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  
+  <title>命令行基础 - My_Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  
+  <meta name="keywords" content=生活,博客,前端,游戏>
+  
+  
+    <link rel="shortcut icon" type="image/x-icon" href="/lczazcl.github.io/favicon.ico?v=1.02">
+  
+  
+    <link rel="alternate" href="/lczazcl.github.io/atom.xml " title="My_Blog" type="application/atom+xml">
+  
+
+  <link rel="stylesheet" href="/lczazcl.github.io/css/style.css">
+</head>
+  <body>
+    <div class="container">
+      <header class="header">
+  <div class="blog-title">
+    <a href="/lczazcl.github.io/" class="logo">My_Blog</a>
+    <div class="subtitle"></div>
+  </div>
+  <nav class="navbar">
+    <ul class="menu">
+      
+        <li class="menu-item">
+          <a href="/lczazcl.github.io/" class="menu-item-link">Home</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/lczazcl.github.io/archives" class="menu-item-link">Archives</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/lczazcl.github.io/about" class="menu-item-link">About</a>
+        </li>
+      
+    </ul>
+  </nav>
+</header>
+<article class="post">
+  <div class="post-title">
+    <h1 class="article-title">命令行基础</h1>
+  </div>
+   <div class="post-meta">
+    <span class="post-time">2018-03-21</span>
+  </div>
+  <div class="post-content">
+    <h3 id="为什么要学"><a href="#为什么要学" class="headerlink" title="为什么要学"></a>为什么要学</h3><p>因为现代的前端工具，都没有提供图形界面，只有命令行界面，所以从实用角度出发，前端必须学命令行。</p>
+<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">功能</th>
+<th style="text-align:left">全写</th>
+<th style="text-align:left">缩写  </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">创建目录</td>
+<td style="text-align:left">make directory</td>
+<td style="text-align:left">mkdir</td>
+</tr>
+<tr>
+<td style="text-align:left">创建文件</td>
+<td style="text-align:left">touch 1.txt</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">删除</td>
+<td style="text-align:left">remove</td>
+<td style="text-align:left">rm</td>
+</tr>
+<tr>
+<td style="text-align:left">移动/重命名</td>
+<td style="text-align:left">move 1.txt 2.txt</td>
+<td style="text-align:left">mv</td>
+</tr>
+<tr>
+<td style="text-align:left">复制</td>
+<td style="text-align:left">copy</td>
+<td style="text-align:left">cp</td>
+</tr>
+<tr>
+<td style="text-align:left">罗列</td>
+<td style="text-align:left">list</td>
+<td style="text-align:left">ls</td>
+</tr>
+<tr>
+<td style="text-align:left">改变目录</td>
+<td style="text-align:left">change directory</td>
+<td style="text-align:left">cd</td>
+</tr>
+<tr>
+<td style="text-align:left">– –</td>
+<td style="text-align:left">– –</td>
+<td style="text-align:left">– –</td>
+</tr>
+<tr>
+<td style="text-align:left">显示当前目录下所有文件</td>
+<td style="text-align:left">list</td>
+<td style="text-align:left">ls</td>
+</tr>
+<tr>
+<td style="text-align:left">显示指定目录下所有文件</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">ls 路径</td>
+</tr>
+<tr>
+<td style="text-align:left">显示所有隐藏文件</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">ls -a</td>
+</tr>
+<tr>
+<td style="text-align:left">显示文件详细信息</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">ls -l</td>
+</tr>
+<tr>
+<td style="text-align:left">– –</td>
+<td style="text-align:left">– –</td>
+<td style="text-align:left">– –</td>
+</tr>
+<tr>
+<td style="text-align:left">创建文件</td>
+<td style="text-align:left">echo</td>
+<td style="text-align:left">echo 1.txt</td>
+</tr>
+<tr>
+<td style="text-align:left">强制创建文件</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">echo 1.txt &gt;! 文件路径</td>
+</tr>
+<tr>
+<td style="text-align:left">追加文件内容</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">echo 1.txt &gt;&gt; 文件路径</td>
+</tr>
+<tr>
+<td style="text-align:left">显示当前目录</td>
+<td style="text-align:left">pwd</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">显示当前用户名</td>
+<td style="text-align:left">whoami</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">建立软连接</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">ln -s 真实文件 链接文件</td>
+</tr>
+</tbody>
+</table>
+<h3 id="命令行技巧"><a href="#命令行技巧" class="headerlink" title="命令行技巧"></a>命令行技巧</h3><p>如果你不会一些命令行技巧，你就体会不到命令行的高效之处。</p>
+<h4 id="自动运行"><a href="#自动运行" class="headerlink" title="自动运行"></a>自动运行</h4><p>1、首先 touch ~/.bashrc 创建一下这个文件<br>2、start ~/.bashrc 选用编辑器编辑这个文件，内容为 echo ‘Hi’<br>3、你也可以用命令行编辑文件 echo “echo ‘hi’” &gt;&gt; ~/.bashrc<br>4、关闭退出 Git Bash，然后打开 Git Bash，是不是看到了 Hi，这说明每次进入 Git Bash，就会优先运行 ~/.bashrc 里面的命令<br>5、重新编辑 ~/.bashrc，内容改为 cd ~/Desktop，重启 Git Bash，有没有发现默认就进入桌面目录了？<br>你可以用 ~/.bashrc 在进入 Git Bash 前执行任何命令，十分方便。</p>
+<h4 id="alias"><a href="#alias" class="headerlink" title="alias"></a>alias</h4><p>1、在 ~/.bashrc 里新增一行 alias f=”echo ‘frank is awesome’”，等于号两边不能有空格，你最好一个字都不要错。<br>2、运行 source ~/.bashrc，作用是执行 ~/.bashrc<br>3、运行 f，就会看到 frank is awesome<br>4、也就是说，现在 f 就是 echo ‘frank is awesome’ 的缩写了，利用这个技巧，我们可以把很多常见的命令缩写一下，比如<br> alias la=’ls -a’<br> alias ll=’ls -l’<br> alias gst=’git status -sb’<br> alias ga=’git add’<br> alias ga.=’git add .’<br> alias gc=’git commit’<br> alias gc.=’git commit .’<br>保存退出，然后运行 source ~/.bashrc<br>这样一来，你的 Git 操作就会简单很多：<br> ga 1.txt<br> ga .<br> gc 1.txt<br> gc.<br> gst</p>
+
+  </div>
+  <div class="post-footer">
+    
+
+    <a href="#top" class="top">Back to Top</a>
+  </div>
+</article>
+<footer>
+  &copy; 2018
+  <span class="author">
+    LCZ
+  </span>
+</footer>
+    </div>
+  </body>
+</html>
