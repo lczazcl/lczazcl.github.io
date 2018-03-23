@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  
+  <title>JS里的对象 - My_Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  
+  <meta name="keywords" content=生活,博客,前端,游戏>
+  
+  
+    <link rel="shortcut icon" type="image/x-icon" href="/lczazcl.github.io/favicon.ico?v=1.02">
+  
+  
+    <link rel="alternate" href="/lczazcl.github.io/atom.xml " title="My_Blog" type="application/atom+xml">
+  
+
+  <link rel="stylesheet" href="/lczazcl.github.io/css/style.css">
+</head>
+  <body>
+    <div class="container">
+      <header class="header">
+  <div class="blog-title">
+    <a href="/lczazcl.github.io/" class="logo">My_Blog</a>
+    <div class="subtitle"></div>
+  </div>
+  <nav class="navbar">
+    <ul class="menu">
+      
+        <li class="menu-item">
+          <a href="/lczazcl.github.io/" class="menu-item-link">Home</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/lczazcl.github.io/archives" class="menu-item-link">Archives</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/lczazcl.github.io/about" class="menu-item-link">About</a>
+        </li>
+      
+    </ul>
+  </nav>
+</header>
+<article class="post">
+  <div class="post-title">
+    <h1 class="article-title">JS里的对象</h1>
+  </div>
+   <div class="post-meta">
+    <span class="post-time">2018-03-22</span>
+  </div>
+  <div class="post-content">
+    <p>ECMAScript 规定全局对象叫做 global，浏览器的global是window（浏览器先存在的），它有一些属性<br>global.parseInt()<br>global.parseFloat()<br>浏览器先生成global(window) -&gt; window.parseInt、window.parseFloat …<br>window下面的属性分为两类：<br>1、ECMAScript 规定要有的(parseInt、parseFloat、Number、String、Boolean、Object)<br>2、私有(chrome、Firefox)：alert、prompt、console、confirm、document,只有浏览器才有document(有它自己的规范叫做DOM)</p>
+<h4 id="ECMA已经规定的对象："><a href="#ECMA已经规定的对象：" class="headerlink" title="ECMA已经规定的对象："></a>ECMA已经规定的对象：</h4><h3 id="Number"><a href="#Number" class="headerlink" title="Number"></a>Number</h3><p>1、Number(‘1’)<br>2、var n = new Number(1)<br>1 -&gt; {valueOf():1}</p>
+<p>//JS程序员更喜欢var n = 1内存不同，普通类型会被创建temp临时对象<br>var n = 1<br>n.toString()<br>n1为基本类型，没有toString()方法，于是JS之父使用妙技：临时转换，创建一个temp临时对象调用方法，然后再抹杀掉temp。<br>temp = new Number(n1)<br>temp.toString()<br>n.xxx = 2   //可以进行赋值，但是temp被抹杀掉时也会删除xxx，再调用时已经是一个新的temp.xxx</p>
+<h3 id="String"><a href="#String" class="headerlink" title="String"></a>String</h3><p>有两种方式声明字符串：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var s = &apos;lksudjmfks&apos;    //基本类型的string，调用方法也会创建临时对象。</span><br><span class="line">var s2 = new String(s)  //生成一个哈希</span><br><span class="line">s2.charAt(0)        //第0位的字符</span><br><span class="line">s2.charCodeAt(0)    //第0位字符的编码</span><br><span class="line">s2.charCodeAt(0).toString(16)   //转换为16进制的字符串</span><br><span class="line">&apos;   username&apos;.trim()            //去掉字符串两边的空格</span><br><span class="line">var s1 = &apos;hello&apos;</span><br><span class="line">var s2 = &apos;world&apos;</span><br><span class="line">s1.concat(s2)                   //连接字符串</span><br><span class="line">s1.slice(0,2)                   //返回一个从开始到结束（不包括结束）选择的数组的一部分浅拷贝到一个新数组对象。且原始数组不会被修改。</span><br></pre></td></tr></table></figure></p>
+<h3 id="boolean"><a href="#boolean" class="headerlink" title="boolean"></a>boolean</h3><p>有两种方式声明boolean<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var b = true</span><br><span class="line">var b2 = new Boolean(true)</span><br><span class="line">console.log(b2)                 //生成一个对象</span><br><span class="line"></span><br><span class="line">var f = false</span><br><span class="line">var f2 = new Boolean(false)</span><br><span class="line">if(f)&#123;</span><br><span class="line">    console.log(1)              //不会被打印</span><br><span class="line">&#125;</span><br><span class="line">if(f2)&#123;</span><br><span class="line">    console.log(2)              //会被打印，所有对象都为true</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h3><p>有两种方式声明Object<br>var o1 = {}<br>var o2 = new Object()           //神经病才用第二种，打的字多。<br>两种都是对象，没有区别，但是内存地址不一样。</p>
+
+  </div>
+  <div class="post-footer">
+    
+
+    <a href="#top" class="top">Back to Top</a>
+  </div>
+</article>
+<footer>
+  &copy; 2018
+  <span class="author">
+    LCZ
+  </span>
+</footer>
+    </div>
+  </body>
+</html>

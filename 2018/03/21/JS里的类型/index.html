@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  
+  <title>JS里的类型 - My_Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  
+  <meta name="keywords" content=生活,博客,前端,游戏>
+  
+  
+    <link rel="shortcut icon" type="image/x-icon" href="/lczazcl.github.io/favicon.ico?v=1.02">
+  
+  
+    <link rel="alternate" href="/lczazcl.github.io/atom.xml " title="My_Blog" type="application/atom+xml">
+  
+
+  <link rel="stylesheet" href="/lczazcl.github.io/css/style.css">
+</head>
+  <body>
+    <div class="container">
+      <header class="header">
+  <div class="blog-title">
+    <a href="/lczazcl.github.io/" class="logo">My_Blog</a>
+    <div class="subtitle"></div>
+  </div>
+  <nav class="navbar">
+    <ul class="menu">
+      
+        <li class="menu-item">
+          <a href="/lczazcl.github.io/" class="menu-item-link">Home</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/lczazcl.github.io/archives" class="menu-item-link">Archives</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/lczazcl.github.io/about" class="menu-item-link">About</a>
+        </li>
+      
+    </ul>
+  </nav>
+</header>
+<article class="post">
+  <div class="post-title">
+    <h1 class="article-title">JS里的类型</h1>
+  </div>
+   <div class="post-meta">
+    <span class="post-time">2018-03-21</span>
+  </div>
+  <div class="post-content">
+    <h3 id="数据类型转换"><a href="#数据类型转换" class="headerlink" title="数据类型转换"></a>数据类型转换</h3><h4 id="转换成string："><a href="#转换成string：" class="headerlink" title="转换成string："></a>转换成string：</h4><h5 id="常规："><a href="#常规：" class="headerlink" title="常规："></a>常规：</h5><p>1、number、boolean类型可通过toString方法转换成字符串<br>2、symbol不能用toString方法<br>3、undefined、null不能用toString方法，会报错<br>4、Object类型用toString只能转换出”[object Object]”<br>5、把上述toString()改成String()也一样，但String()能转换null和undefined<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(1).toString()          //  &apos;1&apos;</span><br><span class="line">true.toString()         //  &apos;true&apos;</span><br><span class="line">null.toString()         //Uncaught TypeError: Cannot read property &apos;toString&apos; of null</span><br><span class="line">undefined.toString()    //Uncaught TypeError: Cannot read property &apos;toString&apos; of undefined</span><br></pre></td></tr></table></figure></p>
+<h5 id="老司机："><a href="#老司机：" class="headerlink" title="老司机："></a>老司机：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1 + &apos;&apos;                  //&apos;1&apos;</span><br><span class="line">true + &apos;&apos;               //&apos;true&apos;</span><br><span class="line">null + &apos;&apos;               //&apos;null&apos;</span><br><span class="line">undefined + &apos;&apos;          //&apos;undefined&apos;</span><br><span class="line">var obj = &#123;name:&apos;li&apos;&#125;   </span><br><span class="line">obj + &apos;&apos;                //&quot;[object Object]&quot;</span><br></pre></td></tr></table></figure>
+<h4 id="转换成boolean："><a href="#转换成boolean：" class="headerlink" title="转换成boolean："></a>转换成boolean：</h4><h5 id="常规：-1"><a href="#常规：-1" class="headerlink" title="常规："></a>常规：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Boolean(1)  //true</span><br><span class="line">Boolean(0)  //false</span><br><span class="line">Boolean(&apos;&apos;)  //false</span><br><span class="line">Boolean(&apos; &apos;)  //true</span><br><span class="line">Boolean(&apos;123&apos;)  //true</span><br><span class="line">Boolean(null)  //false</span><br><span class="line">Boolean(undefined)  //false</span><br><span class="line">Boolean(&#123;&#125;)  //true</span><br><span class="line">Boolean(NaN)    //false</span><br></pre></td></tr></table></figure>
+<h5 id="老司机：-1"><a href="#老司机：-1" class="headerlink" title="老司机："></a>老司机：</h5><p>有5个falsy值，0、NaN、’’、null、undefined，所有对象都是true<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">!true   //false</span><br><span class="line">!false  //true</span><br><span class="line">!null   //true</span><br><span class="line">!undefined  //true</span><br><span class="line">!!1 //true</span><br><span class="line">!!0 //false</span><br><span class="line">!!NaN   //false</span><br><span class="line">!!&#123;&#125;    //true</span><br></pre></td></tr></table></figure></p>
+<h4 id="转换成number："><a href="#转换成number：" class="headerlink" title="转换成number："></a>转换成number：</h4><h5 id="常规：-2"><a href="#常规：-2" class="headerlink" title="常规："></a>常规：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Number(&apos;1&apos;)         //1</span><br><span class="line">parseInt(&apos;1&apos;,10)    //1 转换为10进制，不写参数默认就是10进制</span><br><span class="line">parseInt(&apos;011&apos;)     //11</span><br><span class="line">parseInt(&apos;011&apos;,8)   //9 转换为8进制</span><br><span class="line">parseFloat(&apos;1.23&apos;)  //1.23</span><br><span class="line">parseInt(&apos;a&apos;)       //NaN</span><br><span class="line">parseInt(&apos;1px&apos;)     //1</span><br></pre></td></tr></table></figure>
+<h5 id="老司机：-2"><a href="#老司机：-2" class="headerlink" title="老司机："></a>老司机：</h5><blockquote>
+<p>‘1’ - 0 //1<br>‘1’    //1 取正<br>‘1.23’ //1.23<br>+’.1’   //0.1<br>+’-1’   //1</p>
+</blockquote>
+
+  </div>
+  <div class="post-footer">
+    
+
+    <a href="#top" class="top">Back to Top</a>
+  </div>
+</article>
+<footer>
+  &copy; 2018
+  <span class="author">
+    LCZ
+  </span>
+</footer>
+    </div>
+  </body>
+</html>
