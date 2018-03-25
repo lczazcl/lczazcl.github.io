@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  
+  <title>函数 - My_Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  
+  <meta name="keywords" content=生活,博客,前端,游戏>
+  
+  
+    <link rel="shortcut icon" type="image/x-icon" href="/lczazcl.github.io/favicon.ico?v=1.02">
+  
+  
+    <link rel="alternate" href="/lczazcl.github.io/atom.xml " title="My_Blog" type="application/atom+xml">
+  
+
+  <link rel="stylesheet" href="/lczazcl.github.io/css/style.css">
+</head>
+  <body>
+    <div class="container">
+      <header class="header">
+  <div class="blog-title">
+    <a href="/lczazcl.github.io/" class="logo">My_Blog</a>
+    <div class="subtitle"></div>
+  </div>
+  <nav class="navbar">
+    <ul class="menu">
+      
+        <li class="menu-item">
+          <a href="/lczazcl.github.io/" class="menu-item-link">Home</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/lczazcl.github.io/archives" class="menu-item-link">Archives</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/lczazcl.github.io/about" class="menu-item-link">About</a>
+        </li>
+      
+    </ul>
+  </nav>
+</header>
+<article class="post">
+  <div class="post-title">
+    <h1 class="article-title">函数</h1>
+  </div>
+   <div class="post-meta">
+    <span class="post-time">2018-03-23</span>
+  </div>
+  <div class="post-content">
+    <h3 id="函数的声明方式"><a href="#函数的声明方式" class="headerlink" title="函数的声明方式"></a>函数的声明方式</h3><p>一个变量可以是7中数据类型(Number、String、Boolean、null、undefined、Symbol、Object)。<br>函数x就只能是函数。<br>函数会自动添加return undefined到最后一句。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//具名函数</span><br><span class="line">function x(输入1,输入2)&#123;</span><br><span class="line">    return undefined</span><br><span class="line">&#125;</span><br><span class="line">x.toString()        //显示函数自身字符串&quot;function x(输入1,输入2)&#123;return undefined&#125;&quot;</span><br><span class="line">console.log(x)      //console.log直接收字符串，如果参数不是字符串，会自动调用toString方法</span><br></pre></td></tr></table></figure></p>
+<p>匿名函数单独使用会报错，需要赋值给一个变量。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//匿名函数</span><br><span class="line">function (input1,input2)&#123;return undefined&#125;      //报错 Uncaught SyntaxError: Unexpected token (</span><br><span class="line">var x = function (input1,input2)&#123;return undefined&#125;      //需要赋值给一个变量</span><br></pre></td></tr></table></figure></p>
+<p>有名字的函数也可以赋值给一个变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var x = function y(input1,input2)&#123;return undefined&#125;</span><br><span class="line">console.log(y)      //报错 Uncaught ReferenceError: y is not defined</span><br></pre></td></tr></table></figure></p>
+<h4 id="函数对象window-Function"><a href="#函数对象window-Function" class="headerlink" title="函数对象window.Function"></a>函数对象window.Function</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var f = new Function(&apos;x&apos;,&apos;y&apos;,&apos;return x+y&apos;)</span><br><span class="line">f(1,2)</span><br><span class="line"></span><br><span class="line">var n = 1</span><br><span class="line">var f2 = new Function(&apos;x&apos;,&apos;y&apos;,&apos;return x+&apos;+ n +&apos;+y&apos;)     //4</span><br></pre></td></tr></table></figure>
+<h4 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">sum = (x,y) =&gt; &#123;return x+y&#125;</span><br><span class="line">sum(1,2)</span><br><span class="line"></span><br><span class="line">sum = (x,y) =&gt; x+y</span><br><span class="line">sum(5,8)        //如果后面只有一句，可以去掉花括号和return，不能返回对象，花括号和return必须同时去掉。</span><br><span class="line"></span><br><span class="line">n2 = n =&gt; n*n</span><br><span class="line">n2(6)       //如果只有一个参数，()也可以去掉</span><br><span class="line"></span><br><span class="line">//稍微复杂一些的场景</span><br><span class="line">f = (x,y) =&gt; &#123;</span><br><span class="line">    var n = x*3;</span><br><span class="line">    var m = y*2;</span><br><span class="line">    return n + m</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>箭头函数没有函数名</p>
+<h4 id="函数的name"><a href="#函数的name" class="headerlink" title="函数的name"></a>函数的name</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function f()&#123;&#125;</span><br><span class="line">f.name      //&quot;f&quot;</span><br><span class="line"></span><br><span class="line">var f2 = function()&#123;&#125;</span><br><span class="line">f2.name     //&quot;f2&quot;</span><br><span class="line"></span><br><span class="line">var f3 = function f4()&#123;&#125;</span><br><span class="line">f3.name     //&quot;f4&quot;  变态！</span><br><span class="line"></span><br><span class="line">var f5 = new Function(&apos;x&apos;,&apos;y&apos;,&apos;return x+y&apos;)</span><br><span class="line">f5.name     //&quot;anonymous&quot;   名字叫做&quot;匿名&quot;</span><br></pre></td></tr></table></figure>
+<h3 id="函数的调用"><a href="#函数的调用" class="headerlink" title="函数的调用"></a>函数的调用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">function f(x,y)&#123;</span><br><span class="line">    return x+y</span><br><span class="line">&#125;</span><br><span class="line">f       //不会执行</span><br><span class="line"></span><br><span class="line">//单纯的码代码，没有复用性</span><br><span class="line">var width = 100</span><br><span class="line">var height = 200</span><br><span class="line">var n = width * height</span><br><span class="line">var m = n / 2</span><br><span class="line"></span><br><span class="line">//写成一个函数，可以重复调用这个功能，计算不同的值</span><br><span class="line">function 求三角形面积(width,height)&#123;</span><br><span class="line">    var n = width * height</span><br><span class="line">    var m = n / 2</span><br><span class="line">    return m</span><br><span class="line">&#125;</span><br><span class="line">求三角形面积(4,3)</span><br></pre></td></tr></table></figure>
+<p>函数就是一段可以反复调用的代码块。函数还能接受输入参数，不同的参数会返回不同的值。</p>
+<ul>
+<li>call<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var f = &#123;&#125;</span><br><span class="line">f.name = &apos;f&apos;</span><br><span class="line">f.params = [&apos;x&apos;,&apos;y&apos;]</span><br><span class="line">f.functionBody = &apos;console.log(&quot;fff&quot;)&apos;</span><br><span class="line">f.call = function()&#123;</span><br><span class="line">    return eval(f.functionBody)</span><br><span class="line">&#125;</span><br><span class="line">f.call()        //fff</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>函数到底是什么？<br>函数就是一个对象，它可以执行一段代码。可以执行代码（自己写的代码）的对象，就是函数。<br><img src="http://ww1.sinaimg.cn/large/9b135823ly1fpnz2t1fvaj20vs0ke44y.jpg" alt=""></p>
+<p>call的用法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">function f(x,y)&#123;return x+y&#125;</span><br><span class="line">f.call(undefined,1,2)   //3</span><br></pre></td></tr></table></figure></p>
+<p>1、call的第一个参数可以用this得到。<br>2、call的后面的参数可以用arguments得到。<br>3、严格模式下，this根据传入的参数决定。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">f = function()&#123;</span><br><span class="line">    console.log(this)       //window</span><br><span class="line">    console.log(arguments)</span><br><span class="line">&#125;</span><br><span class="line">f.call(undefined,1,2,3)</span><br><span class="line"></span><br><span class="line">f = function()&#123;</span><br><span class="line">    &apos;use strict&apos;                //启用严格模式</span><br><span class="line">    console.log(this)       //undefined</span><br><span class="line">    console.log(arguments)</span><br><span class="line">&#125;</span><br><span class="line">f.call(undefined,1,2,3)</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>arguments<br>arguments不是一个 Array 。它类似于Array（伪数组），__proto不是Array.prototype(整个原型链中就没有这一环)，但是有0,1,2,3,length这几个属性。或者直接看有没有push这个方法。</li>
+<li>call stack<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function sum(n)&#123;</span><br><span class="line">    if(n == 1)&#123;</span><br><span class="line">        return 1</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        return n + sum.call(undefined,n-1)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">sum.call(undefined,5)	//5+sum(4) 5+4+3+2+1</span><br><span class="line">//sum.call(undefined,4)	//4+sum(3) 4+3+2+1</span><br><span class="line">//sum.call(undefined,3)	//3+sum(2) 3+2+1</span><br><span class="line">//sum.call(undefined,2)	//2+sum(1) 2+1</span><br><span class="line">//sum.call(undefined,1)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h3><p>作用域就是树。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var a = 1</span><br><span class="line">function f1()&#123;</span><br><span class="line">    var a = 2</span><br><span class="line">    f2.call()</span><br><span class="line">    console.log(a)</span><br><span class="line"></span><br><span class="line">    function f2()&#123;</span><br><span class="line">        var a = 3</span><br><span class="line">        console.log(a)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">f1.call()</span><br><span class="line">console.log(a)</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var a = 1</span><br><span class="line">function f1()&#123;</span><br><span class="line">    console.log(a)</span><br><span class="line">    var a = 2</span><br><span class="line">    f4.call()</span><br><span class="line">&#125;</span><br><span class="line">function f4()&#123;</span><br><span class="line">    console.log(a)      //猜测变量的值是多少，不如先确定它是哪个变量。</span><br><span class="line">&#125;</span><br><span class="line">f1.call()</span><br><span class="line">console.log(a)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var a = 1</span><br><span class="line">function f1()&#123;</span><br><span class="line">    console.log(a)</span><br><span class="line">    var a = 2</span><br><span class="line">    f4.call()</span><br><span class="line">&#125;</span><br><span class="line">function f4()&#123;</span><br><span class="line">    console.log(a)</span><br><span class="line">&#125;</span><br><span class="line">????????????????????        //怎样使函数f4打印出的a不是1</span><br><span class="line">f1.call()</span><br><span class="line">console.log(a)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//著名题目</span><br><span class="line">var ali = document.querySelectorAll(&apos;li&apos;)</span><br><span class="line">for(var i=0;i&lt;ali.length;i++)&#123;</span><br><span class="line">    ali[i].onclick = function()&#123;</span><br><span class="line">        console.loh(i)      //i是多少</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">console.log(i)          //6</span><br></pre></td></tr></table></figure>
+<p>变量优先会认为是一个赋值，会在当前作用域查找是否有声明，如果没有就去上一层找，如果有，就是在给上一层的声明赋值；如果全局作用域也没有，就是声明加赋值。</p>
+<h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var a = 1</span><br><span class="line">function f4()&#123;</span><br><span class="line">    console.log(a)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果一个函数，使用了它范围外的变量，那么（这个函数+这个变量）就叫做闭包。<br>详细研读：<a href="https://zhuanlan.zhihu.com/p/22486908" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/22486908</a></p>
+
+  </div>
+  <div class="post-footer">
+    
+
+    <a href="#top" class="top">Back to Top</a>
+  </div>
+</article>
+<footer>
+  &copy; 2018
+  <span class="author">
+    LCZ
+  </span>
+</footer>
+    </div>
+  </body>
+</html>
